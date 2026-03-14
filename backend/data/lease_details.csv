@@ -1,0 +1,103 @@
+Field Name,Display Name,Type,Value,Confidence
+tenant,Tenant,text,Ryan Hall and Danielle Macca Hall,HIGH
+landlord,Landlord,text,Sell Family Partners,HIGH
+lease_start_date,Lease Start Date,date,,LOW
+lease_end_date,Lease End Date,date,,LOW
+rent_amount,Rent Amount,currency,,LOW
+security_deposit,Security Deposit,currency,"$1,900",HIGH
+renewal_options,Renewal Options,text,"Two, Three year options",HIGH
+termination_clauses,Termination Clauses,text,,LOW
+special_provisions,Special Provisions,text,,LOW
+lease_summary_of_material_terms,Lease Summary Of Material Terms,type of field,,LOW
+address,Address,text,"5441 Main Street, Suite 4",HIGH
+unit,Unit,text,Suite 4,HIGH
+dba_name,DBA Name,text,Nelly's Italian Cafe,HIGH
+leased_area_sf,Leased Area (SF),text,"1,200",HIGH
+remeasurement_provision,Remeasurement Provision,text,,LOW
+security_deposit_amount,Security Deposit ($),number,"$1,900",HIGH
+guarantor,Guarantor,text,,LOW
+lease_term_months,Lease Term (Months),number,60,HIGH
+lease_term_notes,Lease Term Notes,text,,LOW
+free_rent_amount/months,Free Rent ($/Months),number,,LOW
+tenant_allowance_amount,Tenant Allowance ($),number,,LOW
+deadline_to_submit_plans,Deadline to Submit Plans,text,,LOW
+deadline_to_apply_for_permits,Deadline to Apply for Permits,text,,LOW
+tenant_possession_date,Tenant Possession Date,date,Immediate Possession,HIGH
+possession_before_permits_y/n,Possession before permits (Y/N),y/n,,LOW
+landlord_delivery_date,Landlord Delivery Date,date,,LOW
+rent_commencement_date,Rent Commencement Date,date,"April 1, 2014",HIGH
+number_of_options,Number of Options,number,,LOW
+term_years,Term (Years),number,,LOW
+type,Type,text,,LOW
+earliest_notice,Earliest Notice,text,,LOW
+latest_notice,Latest Notice,text,,LOW
+tenant_initiates_y/n,Tenant Initiates (Y/N),y/n,,LOW
+notes,Notes,text,,LOW
+description,Description,text,,LOW
+sales_kickout,Sales Kickout,text,,LOW
+co-tenancy,Co-Tenancy,text,,LOW
+contraction_option_y/n,Contraction Option (Y/N),y/n,,LOW
+expansion_option_y/n,Expansion Option (Y/N),y/n,,LOW
+purchase_option_y/n,Purchase Option (Y/N),y/n,,LOW
+written_notice_y/n,Written Notice (Y/N),y/n,,LOW
+ll_consent_terms,LL Consent Terms,text,,LOW
+rent_profits_%,Rent Profits %,percentage,,LOW
+3rd_party_y/n,3rd Party (Y/N),y/n,,LOW
+affiliates_y/n,Affiliates (Y/N),y/n,,LOW
+change_of_control_y/n,Change of Control (Y/N),y/n,,LOW
+recapture_of_space_y/n,Recapture of Space (Y/N),y/n,,LOW
+processing_fee,Processing Fee,text,,LOW
+other,Other,text,,LOW
+notes,Notes,text,,LOW
+general_liability,General Liability,number,,LOW
+property,Property,text,,LOW
+workers_comp,Workers Comp,text,,LOW
+auto,Auto,number,,LOW
+business_interruption,Business Interruption,text,,LOW
+employer_liability,Employer Liability,number,,LOW
+design_standards_attached_y/n,Design Standards Attached (Y/N),y/n,,LOW
+approval,Approval,text,,LOW
+description_&_types,Description & Types,text,,LOW
+removal/repair/replacement,Removal/Repair/Replacement,text,,LOW
+permitted_use_/_exclusive_use,Permitted Use / Exclusive Use,text,"Permitted Use: Pizza, Italian, Subs Sit Down and Take Out Restaurant; Exclusive Use: NOT FOUND",HIGH
+radius_restriction_for_exclusive_use,Radius Restriction for Exclusive Use,text,,LOW
+annual_amount,Annual ($),number,,LOW
+monthly_amount,Monthly ($),number,,LOW
+annual_amount/psf,Annual ($/psf),number,$17,HIGH
+details,Details,text,,LOW
+calculation_method,Calculation Method,text,$17/SF/year base rent plus $2/SF/year CAM/Tax/Insurance,HIGH
+%,%,percentage,,LOW
+grace_period,Grace Period,text,,LOW
+notes,Notes,text,,LOW
+permitted_y/n,Permitted (Y/N),y/n,,LOW
+fee_%/amount,Fee (%/$),number / percentage,,LOW
+damages,Damages,text,,LOW
+total_rent,Total Rent,rent table,,LOW
+pro_rata_share,Pro Rata Share,percentage,,LOW
+cap,Cap,text,,LOW
+cap_type,Cap Type,dropdown,,LOW
+expense_stop,Expense Stop,text,,LOW
+denominator_definition,Denominator Definition,text,,LOW
+base_year,Base Year,y/n,,LOW
+admin_fee,Admin Fee,text,,LOW
+admin_exclusions,Admin Exclusions,text,,LOW
+gross_up_provision,Gross Up Provision,text,,LOW
+reconciliation,Reconciliation,text,,LOW
+payment_frequency,Payment Frequency,text,Monthly,HIGH
+audit_rights,Audit Rights,text,,LOW
+inclusions,Inclusions,text,,LOW
+exclusions,Exclusions,text,,LOW
+notes,Notes,text,,LOW
+incl_in_operating_y/n,Incl in Operating (Y/N),y/n,,LOW
+pro_rata_share_%,Pro Rata Share %,percentage,,LOW
+payment_frequency,Payment Frequency,text,Monthly,HIGH
+audit_rights,Audit Rights,text,,LOW
+denominator_definition_y/n,Denominator Definition (Y/N),y/n,,LOW
+right_to_contest,Right To Contest,text,,LOW
+base_year_y/n,Base Year (Y/N),y/n,,LOW
+paid_to_tax_authority_y/n,Paid to Tax Authority (Y/N),y/n,,LOW
+1st_year_estimate,1st Year Estimate,text,,LOW
+monetary_notice_&_cure,Monetary Notice & Cure,text,,LOW
+non_monetary_notice_&_cure,Non Monetary Notice & Cure,text,,LOW
+notes,Notes,text,,LOW
+statement,Statement,text,,LOW

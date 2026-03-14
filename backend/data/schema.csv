@@ -1,0 +1,141 @@
+Lease Summary Of Material Terms,Type of Field
+,
+PARTIES & PREMISES,
+,
+Address,Text
+Unit,Text
+Landlord,Text
+Tenant,Text
+DBA Name,Text
+Leased Area (SF),Text
+Remeasurement Provision,Text
+Security Deposit ($),Number
+Guarantor,Text
+,
+KEY DATES,
+,
+Lease Term (Months),Number
+Lease Term Notes,Text
+Free Rent ($/Months),Number
+Tenant Allowance ($),Number
+Deadline to Submit Plans,Text
+Deadline to Apply for Permits,Text
+Tenant Possession Date,Date
+Possession before permits (Y/N),Y/N
+Landlord Delivery Date,Date
+Rent Commencement Date,Date
+,
+OPTIONS,
+,
+Renewal Options,
+Number of Options,Number
+Term (Years),Number
+Type,Text
+Earliest Notice,Text
+Latest Notice,Text
+Tenant Initiates (Y/N),Y/N
+Notes,Text
+,
+Early Termination Rights,
+Description,Text
+Sales Kickout,Text
+Co-Tenancy,Text
+,
+Other Options,
+Contraction Option (Y/N),Y/N
+Expansion Option (Y/N),Y/N
+Purchase Option (Y/N),Y/N
+,
+SUBLEASE & ASSIGNMENT,
+,
+Written Notice (Y/N),Y/N
+LL Consent Terms,Text
+Rent Profits % ,Percentage
+3rd Party (Y/N),Y/N
+Affiliates (Y/N),Y/N
+Change of Control (Y/N),Y/N
+Recapture of Space (Y/N),Y/N
+Processing Fee,Text
+Other,Text
+Notes,Text
+,
+TENANT INSURANCE,
+,
+General Liability,Number
+Property,Text
+Workers Comp,Text
+Auto,Number
+Business Interruption,Text
+Employer Liability,Number
+,
+SIGNAGE RIGHTS & PERMITTED USE,
+,
+Design Standards Attached (Y/N),Y/N
+Approval,Text
+Description & Types,Text
+Removal/Repair/Replacement,Text
+Permitted Use / Exclusive Use,Text
+Radius Restriction for Exclusive Use,Text
+,
+RENT,
+,
+Minimum Base Rent,
+Annual ($),Number
+Monthly ($),Number
+Annual ($/psf),Number
+,
+Percentage Rent,
+Details,Text
+,
+Late Fee,
+Calculation Method,Text
+%,Percentage
+Grace Period,Text
+Notes,Text
+,
+Holdover,
+Permitted (Y/N),Y/N
+Fee (%/$),Number / Percentage
+Damages,Text
+,
+Total Rent,Rent Table
+,
+CAM,
+,
+Pro Rata Share,Percentage
+Cap,Text
+Cap Type,Dropdown
+Expense Stop,Text
+Denominator Definition,Text
+Base Year,Y/N
+Admin Fee,Text
+Admin Exclusions,Text
+Gross Up Provision,Text
+Reconciliation,Text
+Payment Frequency,Text
+Audit Rights,Text
+Inclusions,Text
+Exclusions,Text
+Notes,Text
+,
+TAXES,
+,
+Incl in Operating (Y/N),Y/N
+Pro Rata Share %,Percentage
+Payment Frequency,Text
+Audit Rights,Text
+Denominator Definition (Y/N),Y/N
+Right To Contest,Text
+Base Year (Y/N),Y/N
+Paid to Tax Authority (Y/N),Y/N
+1st Year Estimate,Text
+,
+DEFAULT,
+,
+Monetary Notice & Cure,Text
+Non Monetary Notice & Cure,Text
+Notes,Text
+,
+SPECIAL COMPLIANCE PROVISIONS,
+,
+Statement,Text

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lease Document Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <header class="sidebar-header">
+            <h1 class="app-title">Lease Analysis</h1>
+            
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="chat">Chat</button>
+                <div class="nav-divider"></div>
+                <button class="nav-tab" data-tab="summary">Summary</button>
+            </div>
+        </header>
+
+        <div class="sidebar-content">
+            <div class="upload-group">
+                <!-- PDF Upload -->
+                <div class="upload-item" id="pdfUpload">
+                    <input type="file" id="pdfInput" accept=".pdf" style="display: none;">
+                    <button class="upload-btn" id="selectPdfBtn">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        <span class="btn-text">Select PDF Lease</span>
+                    </button>
+                    <span class="file-name" id="pdfFileName"></span>
+                </div>
+
+                <!-- CSV Schema Upload -->
+                <div class="upload-item" id="csvUpload">
+                    <input type="file" id="csvInput" accept=".csv" style="display: none;">
+                    <button class="upload-btn secondary" id="selectCsvBtn">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v18H3z"></path>
+                            <path d="M3 9h18M3 15h18M9 3v18"></path>
+                        </svg>
+                        <span class="btn-text">Select Schema CSV</span>
+                    </button>
+                    <span class="file-name" id="csvFileName"></span>
+                </div>
+
+                <!-- PDF Type Selector -->
+                <div class="pdf-type-selector" id="pdfTypeSelector" style="display: none;">
+                    <label class="type-label">PDF Type</label>
+                    <div class="type-options">
+                        <label class="type-option">
+                            <input type="radio" name="pdfType" value="text" checked>
+                            <span class="type-radio"></span>
+                            <span class="type-text">
+                                <span class="type-name">Text-based</span>
+                                <span class="type-desc">Standard PDF with selectable text</span>
+                            </span>
+                        </label>
+                        <label class="type-option">
+                            <input type="radio" name="pdfType" value="scan">
+                            <span class="type-radio"></span>
+                            <span class="type-text">
+                                <span class="type-name">Scanned</span>
+                                <span class="type-desc">Image-based PDF requiring OCR</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-bar" id="statusBar">
+                <div class="status-item">
+                    <span class="status-dot" id="pdfStatus"></span>
+                    <span>PDF</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" id="csvStatus"></span>
+                    <span>Schema</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" id="processStatus"></span>
+                    <span>Ready</span>
+                </div>
+            </div>
+
+            <button class="load-btn" id="processBtn" disabled>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                </svg>
+                <span class="btn-text">Process Document</span>
+            </button>
+
+            <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+            <!-- Schema Fields Preview -->
+            <div class="schema-preview" id="schemaPreview" style="display: none;">
+                <h3 class="fields-title">Schema Fields</h3>
+                <div class="schema-fields-list" id="schemaFieldsList"></div>
+            </div>
+
+            <!-- Extracted Fields -->
+            <div class="extracted-fields" id="extractedFields" style="display: none;">
+                <h3 class="fields-title">Extracted Fields</h3>
+                <div class="fields-list" id="fieldsList"></div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-chat">
+        <header class="chat-header">
+            <div class="header-info">
+                <h2 class="current-chat-title">Lease Assistant</h2>
+                <div class="current-chat-status">
+                    <span id="leaseTitle">Upload PDF and Schema CSV to begin</span>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="action-btn" id="viewSummaryBtn" title="View Full Summary" style="display: none;">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M14 2v6h6"></path>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </button>
+                <button class="action-dropdown" id="clearChatBtn" title="Clear chat">
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="messages-area" id="messagesArea">
+            <div class="welcome-message">
+                <div class="welcome-icon">
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </div>
+                <h3>Welcome to Lease Analysis</h3>
+                <p>Upload a PDF lease document and a schema CSV to extract key terms using AI. The schema defines which fields to extract from your document.</p>
+            </div>
+        </div>
+
+        <div class="compose-area">
+            <button class="icon-btn" id="suggestionsBtn" title="Suggested questions">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+            </button>
+            
+            <div class="compose-input-wrapper">
+                <input type="text" class="compose-input" id="questionInput" placeholder="Ask a question about the lease..." disabled>
+            </div>
+
+            <button class="send-btn" id="sendBtn" disabled>
+                <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path></svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Summary Modal -->
+    <div class="modal" id="summaryModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Key Lease Terms</h2>
+                <div class="modal-actions">
+                    <button class="modal-toggle-btn" id="toggleReportBtn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                        </svg>
+                        <span>Show Full Report</span>
+                    </button>
+                    <button class="modal-download-btn" id="downloadCsvBtn" title="Download CSV">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </button>
+                    <button class="close-modal" id="closeSummaryModal">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body markdown-content" id="summaryContent"></div>
+        </div>
+    </div>
+
+    <div class="suggestions-panel" id="suggestionsPanel" style="display: none;">
+        <div class="suggestions-header">
+            <span>Suggested Questions</span>
+            <button class="close-suggestions" id="closeSuggestions">&times;</button>
+        </div>
+        <div class="suggestions-list">
+            <button class="suggestion-item">What are the key terms of this lease?</button>
+            <button class="suggestion-item">Who is the landlord and tenant?</button>
+            <button class="suggestion-item">What is the monthly rent amount?</button>
+            <button class="suggestion-item">When does the lease start and end?</button>
+            <button class="suggestion-item">What is the security deposit?</button>
+            <button class="suggestion-item">What are the renewal options?</button>
+            <button class="suggestion-item">What are the termination clauses?</button>
+            <button class="suggestion-item">Summarize the special provisions</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
